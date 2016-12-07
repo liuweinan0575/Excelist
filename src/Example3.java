@@ -49,13 +49,12 @@ public class Example3 {
 						continue;
 					}
 					
-					carValue = carValue.substring(2, 7);					
+					carValue = carValue.substring(2, 7);
 					Cell scoreCell = nextRow.getCell(1);					
 					String scoreValue = scoreCell.toString();
 					if (null == cars.get(carValue)) {
 						Map newCar = new HashMap<String, String>();
 						cars.put(carValue, newCar);
-//						System.out.println("carValue" + carValue);
 					}
 					cars.get(carValue).put(day, scoreValue);
 				}
@@ -79,10 +78,8 @@ public class Example3 {
 			while (sheetIterator.hasNext()) {
 				Sheet sheet = sheetIterator.next();
 				String sheetName = sheet.getSheetName();
-				System.out.println(sheetName);
 				Iterator<Row> iterator = sheet.rowIterator();
 				Map dateMap = cars.get(sheetName);
-				System.out.println(dateMap);
 				if (null == dateMap) {
 					continue;
 				}

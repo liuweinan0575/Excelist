@@ -35,12 +35,12 @@ public class Exmaple4 {
 	}
 
 	private void initData() {
-		titles = new String[]{"所属公司", "车牌号(颜色)", "紧急报警", "偏离路线报警", "超速报警", "区域报警", "疲劳驾驶报警", "设备故障", "断电报警", "停车超时", "电瓶欠压"};
-		cars = new String[]{"浙A8C050(黄色)", "浙A5C831(黄色)", "浙A0D973(黄色)", "浙A8C058(黄色)", "浙A920M0(蓝色)", "浙A1E365(黄色)", "浙A0E129(黄色)", "浙A0E156(黄色)"};
-		faults = new int[]{5, 0, 3, 10, 34, 3, 5, 6};
-		fatigues = new int[]{45, 1, 33, 4, 45, 6, 7, 21};		
-		speedings = new int[]{23, 0, 4, 9, 34, 12, 6, 0};
-		company = "杭州爱彼西商务配送有限公司";
+		titles = new String[]{"所属公司", "车牌号(颜色)", "超速报警", "疲劳驾驶报警", "设备故障"};
+		cars = new String[]{"美K00001(黄色)", "美K00001(黄色)", "美K00001(黄色)", "美K00001(黄色)", "美K00001(蓝色)", "美K00001(黄色)", "美K00001(黄色)", "美K00001(黄色)"};
+		faults = new int[]{5, 0, 3, 10, 34, 33, 4, 0};
+		fatigues = new int[]{45, 1, 33, 4, 45, 0, 4, 9};		
+		speedings = new int[]{23, 0, 4, 9, 34, 10, 34, 33};
+		company = "美国曹仁客运有限公司";
 		reportName = "一周监控情况汇报（10月31日-11月6日 ）";
 		title1 = new String[]{"公司名称","车辆总数","日平均在线车辆","日平均离线车辆","终端路障次数","终端故障报警次数"};
 		title2 = new String[]{"报警类型", "车辆数", "车辆明细", "下发信息内容", "累计故障处理/汇报次数"};
@@ -96,11 +96,11 @@ public class Exmaple4 {
 					cell.setCellValue(company);
 				} else if (1==j) {
 					cell.setCellValue(cars[i]);
-				} else if (4==j) {
+				} else if (2==j) {
 					cell.setCellValue(speedings[i]);
-				} else if (6==j) {
+				} else if (3==j) {
 					cell.setCellValue(fatigues[i]);
-				} else if (7==j) {
+				} else if (4==j) {
 					cell.setCellValue(faults[i]);
 				} else {
 					cell.setCellValue(0);
@@ -181,12 +181,12 @@ public class Exmaple4 {
 			if (i==0) {				
 				createStyledCell(row, i, company, styleBorder);
 			} else if(i==1) {
-				createStyledCellInt(row, i, 27, styleBorder);
+				createStyledCellInt(row, i, 8, styleBorder);
 			} else if (i==2) {
-				createStyledCellInt(row, i, 10, styleBorder);
+				createStyledCellInt(row, i, 6, styleBorder);
 				cell.setCellValue(10);
 			} else if (i==3) {
-				createStyledCellInt(row, i, 17, styleBorder);
+				createStyledCellInt(row, i, 2, styleBorder);
 			} else {
 				createStyledCellInt(row, i, 0, styleBorder);
 			}

@@ -42,7 +42,7 @@ public class Example2 {
 //			2.	根据文件名判断，确定是否需要处理这个文件对应的公司数据。
 //			2.1	如果这辆车满足“全国7天未上线”，那么跳过该车的统计数据文件；否则建立该公司项目（项目->项目车辆）映射器。
 			String comanyName = inputFile.split("\\\\")[5].split("_")[0];
-			if (inputFile.contains("全国30天未上线")) {
+			if (inputFile.contains("全国7天未上线")) {
 				continue;
 			}
 			Map<String, List<Object>> companyItemMap = new HashMap<String, List<Object>>();
@@ -70,24 +70,23 @@ public class Example2 {
 					String comanyNameStr = comanyNameCell.toString();
 					if("合计".equals(comanyNameStr)){
 //						4.	从迭代器取出总计的那行，取出第4，6和7个单元格的数据，分别插入到超速项目、疲劳项目和设备项目对应的List数据中去。
-						companyItemMap.get("超速").add(getCellValue(nextRow, 4));
-						companyItemMap.get("疲劳").add(getCellValue(nextRow, 6));
-						companyItemMap.get("设备").add(getCellValue(nextRow, 7));
+						companyItemMap.get("超速").add(getCellValue(nextRow, 2));
+						companyItemMap.get("疲劳").add(getCellValue(nextRow, 3));
+						companyItemMap.get("设备").add(getCellValue(nextRow, 4));
 						break;
 					}
 					
 					String car = getCellValue(nextRow, 1);
-					String tmpString = getCellValue(nextRow, 3);
 //					3.1	利用迭代器取出某一行，对于该行，我们选取第4个单元格，判断该单元格的数据是否为0，如果是那么在超速项目对应的List数据中加入这辆车。
-					if (!"0".equals(getCellValue(nextRow, 4))) {
+					if (!"0".equals(getCellValue(nextRow, 2))) {
 						((List<String>) companyItemMap.get("超速").get(0)).add(car);
 					}
 //					3.2	对于该行，选取第6个单元格，判断该单元格的数据是否为0，如果是那么在疲劳项目对应的List数据中加入这辆车。
-					if (!"0".equals(getCellValue(nextRow, 6))) {
+					if (!"0".equals(getCellValue(nextRow, 3))) {
 						((List<String>) companyItemMap.get("疲劳").get(0)).add(car);
 					}
 //					3.3	对于该行，我们选取第7个单元格，判断该单元格的数据是否为0，如果是那么在设备项目对应的List数据中加入这辆车。
-					if (!"0".equals(getCellValue(nextRow, 7))) {
+					if (!"0".equals(getCellValue(nextRow, 4))) {
 						((List<String>) companyItemMap.get("设备").get(0)).add(car);
 					}
 				}

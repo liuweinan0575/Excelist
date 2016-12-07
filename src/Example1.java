@@ -67,15 +67,12 @@ public class Example1 {
 					
 					Row nextRow = iterator.next();
 					
-					
-					
 					// get the condition to jump out of the while loop				
 					Cell firstCell = nextRow.getCell(0);
 					String firstCellStr = firstCell.toString();
 					if ("具体内容措施".equals(firstCellStr)) {
 						break;
 					}
-					
 					lineNumb = firstCellStr;
 																				
 //					3.1	在对每一辆车记数的过程中，进行数据处理，即将每辆车的第二个“03:00-04:00”设置成“05:00-06:00”。
@@ -95,7 +92,6 @@ public class Example1 {
 //				3.3	开始循环每一辆车的数据。
 				for (int jj = 0; jj < Integer.parseInt(lineNumb); jj++) {
 //					4.	对每一辆车的数据进行处理
-					System.out.println("jjjjjjjjjjjj "+jj);
 					iterator = sheet.iterator();
 					for (int ii = 0; ii < currentLine; ii++) {
 						iterator.next();
@@ -254,7 +250,6 @@ public class Example1 {
 					}
 					
 					int tmpTimesLength = tmpTimes.size();
-					System.out.println("tmpTimesLength " + tmpTimesLength);
 					
 					if(tmpTimesLength == 0 || tmpTimesLength == 1){
 //						4.4.1 如果保留的单元格的数量等于0，这种情况为车辆未营运且没有发生特殊情况。在这种情况下，我们只需要00:00-01:00对应的三个单元格，删除其他所有的单元格（11行）。我们将记录当前行数的变量+1。
@@ -343,7 +338,6 @@ public class Example1 {
 	private void removeMergedRegion(Sheet sheet,int row ,int column)    
     {    
          int sheetMergeCount = sheet.getNumMergedRegions();//获取所有的单元格  
-         System.out.println("sheetMergeCount"+sheetMergeCount);
          int index = 0;//用于保存要移除的那个单元格序号  
          for (int i = 0; i < sheetMergeCount; i++) {   
           CellRangeAddress ca = sheet.getMergedRegion(i); //获取第i个单元格  
@@ -354,15 +348,12 @@ public class Example1 {
           
           if(row >= firstRow && row <= lastRow)    
           {    
-        	  System.out.println("firstRow"+firstRow);
-              System.out.println("firstColumn"+firstColumn); 
            if(column >= firstColumn && column <= lastColumn)    
            {
               index = i;  
            }    
           }    
          }  
-         System.out.println(index);
          sheet.removeMergedRegion(index);//移除合并单元格  
     }    
 	

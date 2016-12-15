@@ -160,6 +160,15 @@ public class Example1 {
 								tmpTimes.add(first+","+second+","+third);
 							}
 						}
+						
+						if (tmpTimes.size() == 0) {
+							Row carRow = carTimes.get(0);
+							String first = carRow.getCell(6).toString();
+							String second = carRow.getCell(7).toString();
+							String third = carRow.getCell(8).toString();
+							tmpTimes.add(first+","+second+","+third);
+						}
+						
 					} else if (userValue.indexOf("起点") == 0) {
 //						4.3.2	如果车辆只有起点，需要将起点的时间对应的三个单元格保留。同时如果出现了有情况的单元格，需要将有情况的单元格对应的三个单元格保留。
 						String startTime = userValue.substring(2, 4);
@@ -213,7 +222,7 @@ public class Example1 {
 							String second = carRow.getCell(7).toString();
 							String third = carRow.getCell(8).toString();
 							
-							if (first.substring(0,1).equals(startTime)) {
+							if (first.substring(0,2).equals(startTime)) {
 								tmpTimes.add(first+","+second+","+third);
 							} else {
 								if (!"√".equals(second) || !"无".equals(third)) {
